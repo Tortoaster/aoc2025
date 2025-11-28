@@ -1,0 +1,14 @@
+[package]
+name = "aoc2025"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+arboard = "3.6.1"
+cached = "0.56.0"
+crossterm = "0.29.0"
+disjoint-hash-set = "1.0.0"
+itertools = "0.14.0"
+ratatui = "0.29.0"
+rayon = "1.11.0"
+throbber-widgets-tui = "0.9.0"
