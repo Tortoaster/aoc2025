@@ -20,12 +20,14 @@ use ratatui::{
 use throbber_widgets_tui::{Throbber, ThrobberState};
 
 mod day1;
+mod day2;
 mod vec2;
 
 fn main() {
     #[rustfmt::skip]
     let days: Vec<(_, _, fn(_) -> _, fn(_) -> _)> = vec![
         (1, include_str!("../input/day1.txt"), day1::solve_a, day1::solve_b),
+        (2, include_str!("../input/day2.txt"), day2::solve_a, day2::solve_b),
     ];
 
     let mut outputs: BTreeMap<(i32, Part), _> = days
