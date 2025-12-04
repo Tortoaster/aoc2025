@@ -20,8 +20,17 @@ use ratatui::{
 use throbber_widgets_tui::{Throbber, ThrobberState};
 
 mod day1;
+mod day10;
+mod day11;
+mod day12;
 mod day2;
 mod day3;
+mod day4;
+mod day5;
+mod day6;
+mod day7;
+mod day8;
+mod day9;
 
 fn main() {
     #[rustfmt::skip]
@@ -29,6 +38,15 @@ fn main() {
         (1, include_str!("../input/day1.txt"), day1::solve_a, day1::solve_b),
         (2, include_str!("../input/day2.txt"), day2::solve_a, day2::solve_b),
         (3, include_str!("../input/day3.txt"), day3::solve_a, day3::solve_b),
+        (4, include_str!("../input/day4.txt"), day4::solve_a, day4::solve_b),
+        // (5, include_str!("../input/day5.txt"), day5::solve_a, day5::solve_b),
+        // (6, include_str!("../input/day6.txt"), day6::solve_a, day6::solve_b),
+        // (7, include_str!("../input/day7.txt"), day7::solve_a, day7::solve_b),
+        // (8, include_str!("../input/day8.txt"), day8::solve_a, day8::solve_b),
+        // (9, include_str!("../input/day9.txt"), day9::solve_a, day9::solve_b),
+        // (10, include_str!("../input/day10.txt"), day10::solve_a, day10::solve_b),
+        // (11, include_str!("../input/day11.txt"), day11::solve_a, day11::solve_b),
+        // (12, include_str!("../input/day12.txt"), day12::solve_a, day12::solve_b),
     ];
 
     let mut outputs: BTreeMap<(i32, Part), _> = days
