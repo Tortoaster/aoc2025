@@ -13,15 +13,14 @@ use crossterm::{
 };
 use itertools::Itertools;
 use ratatui::{
+    Frame,
     prelude::*,
     widgets::{Block, BorderType, Padding},
-    Frame,
 };
 use throbber_widgets_tui::{Throbber, ThrobberState};
 
 mod day1;
 mod day2;
-mod vec2;
 
 fn main() {
     #[rustfmt::skip]

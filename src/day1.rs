@@ -1,5 +1,4 @@
 use anyhow::{Result, anyhow};
-use itertools::Itertools;
 use std::{
     iter::{self, RepeatN},
     str::FromStr,
