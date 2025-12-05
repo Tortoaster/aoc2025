@@ -32,6 +32,9 @@ mod day7;
 mod day8;
 mod day9;
 
+const ROWS: usize = 3;
+const COLS: usize = 4;
+
 fn main() {
     #[rustfmt::skip]
     let days: Vec<(_, _, fn(_) -> _, fn(_) -> _)> = vec![
@@ -113,20 +116,20 @@ fn draw(
     outputs: &mut BTreeMap<(i32, Part), Remember<(u64, Duration)>>,
     state: &State,
 ) {
-    for (row_index, row) in Layout::vertical(iter::repeat_n(Constraint::Length(8), 5))
+    for (row_index, row) in Layout::vertical(iter::repeat_n(Constraint::Length(8), ROWS))
         .split(frame.area())
         .iter()
         .enumerate()
     {
         for (col_index, tile) in Layout::horizontal(iter::repeat_n(
             Constraint::Length(u64::MAX.to_string().len() as u16 + 14),
-            5,
+            COLS,
         ))
         .split(*row)
         .iter()
         .enumerate()
         {
-            let day = (row_index * 5 + col_index + 1) as i32;
+            let day = (row_index * COLS + col_index + 1) as i32;
 
             let mut block = Block::bordered()
                 .border_type(BorderType::Rounded)
@@ -243,18 +246,24 @@ impl State {
     }
 
     fn move_left(&mut self) {
-        self.day = (self.day - 1) / 5 * 5 + ((self.day - 1) % 5 - 1).rem_euclid(5) + 1;
+        self.day = (self.day - 1) / COLS as i32 * COLS as i32
+            + ((self.day - 1) % COLS as i32 - 1).rem_euclid(COLS as i32)
+            + 1;
     }
 
     fn move_right(&mut self) {
-        self.day = (self.day - 1) / 5 * 5 + ((self.day - 1) % 5 + 1) % 5 + 1;
+        self.day = (self.day - 1) / COLS as i32 * COLS as i32
+            + ((self.day - 1) % COLS as i32 + 1) % COLS as i32
+            + 1;
     }
 
     fn move_up(&mut self) {
         if self.part == Part::Two {
             self.part = Part::One;
         } else {
-            self.day = ((self.day - 1) / 5 - 1).rem_euclid(5) * 5 + (self.day - 1) % 5 + 1;
+            self.day = ((self.day - 1) / COLS as i32 - 1).rem_euclid(ROWS as i32) * COLS as i32
+                + (self.day - 1) % COLS as i32
+                + 1;
             self.part = Part::Two;
         }
     }
@@ -263,7 +272,9 @@ impl State {
         if self.part == Part::One {
             self.part = Part::Two;
         } else {
-            self.day = ((self.day - 1) / 5 + 1) % 5 * 5 + (self.day - 1) % 5 + 1;
+            self.day = ((self.day - 1) / COLS as i32 + 1) % ROWS as i32 * COLS as i32
+                + (self.day - 1) % COLS as i32
+                + 1;
             self.part = Part::One;
         }
     }
