@@ -43,7 +43,7 @@ fn main() {
         (3, include_str!("../input/day3.txt"), day3::solve_a, day3::solve_b),
         (4, include_str!("../input/day4.txt"), day4::solve_a, day4::solve_b),
         (5, include_str!("../input/day5.txt"), day5::solve_a, day5::solve_b),
-        // (6, include_str!("../input/day6.txt"), day6::solve_a, day6::solve_b),
+        (6, include_str!("../input/day6.txt"), day6::solve_a, day6::solve_b),
         // (7, include_str!("../input/day7.txt"), day7::solve_a, day7::solve_b),
         // (8, include_str!("../input/day8.txt"), day8::solve_a, day8::solve_b),
         // (9, include_str!("../input/day9.txt"), day9::solve_a, day9::solve_b),
